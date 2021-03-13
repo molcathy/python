@@ -1,5 +1,5 @@
 # python
-Using this repository to document my work of teaching Catherine Python including any tools she might need to learn Python.
+This repository to document my work of teaching Catherine Python including any tools she might need to learn Python.
 
 ## non-python topics
 * shells - terminals
@@ -13,19 +13,21 @@ Using this repository to document my work of teaching Catherine Python including
 * pip
 * functions
 * testing
+* exercism.io
 
 ## shells - terminals
 ### shells
 * [shells](https://en.wikipedia.org/wiki/Shell_(computing)) are programs that allow users to interact with the operating system
-* are named shells because it is the outermost layer around the operating system
+* are named shells because they are the outermost layer around the operating system
 * shells use either:
     - a command-line interface (CLI)
     - or graphical user interface (GUI)
-* for the purpose of this tutorial when we are going to refer to shells we are going to refer to cli shells
+* for the purpose of this tutorial when we are going to refer to shells we are going to refer to the cli shells
 * the shell is both an interactive command language and a scripting language
-* for now will focus on the interactive of the shell
-* there are many flavours of shells 2 of the most popular being:
-    - bash: in most cases the default Linux shell, and on older versions of macOS
+* for now we will focus on the shell as an interactive command language
+* there are many flavours of shells
+* the most popular shells are:
+    - bash: the default Linux shell
     - zsh: the default shell of the latest macOS (Big Sur)
 * many aspects of bash and zsh are similar and for the purpose of this tutorial we are going to ignore their differences
 
@@ -38,10 +40,10 @@ Using this repository to document my work of teaching Catherine Python including
     - launch programs
 * the most popular terminals are:
     - terminal: comes by default with macOS
-    - [iTerm2](https://iterm2.com/): a very good replacement for the MacOS terminal
+    - [iTerm2](https://iterm2.com/): has more features then the default terminal that comes with interactive command language
 
 ### terminal - shell - os
-* basically `terminal --> shell --> commands --> operating system`
+* terminal - shell - os interaction: `user --> terminal --> shell --> commands --> operating system --> apps or hardware`
 * to find out your shell you can execute the `echo $SHELL` in your terminal
 ```sh
 ## example running the echo command to find your default shell
@@ -50,24 +52,24 @@ Using this repository to document my work of teaching Catherine Python including
 ```
 
 ### bash commands syntax
-* the basic syntax of a bash command is `command [flags] [subcommands] [flags] [argument]` - here the brackets means that whatever they enclose are optional and as you can see in many cases only the command name is required
+* the basic syntax of a bash command is `command [flags] [subcommands] [flags] [argument]` - whatever is brackets enclosed is optional
 * in many cases the command, subcommands and flags stand for something making it easier to remember e.g.:
     - `ls`: list
     - `-l`: long
 * flags:
     - most of the time are optional
-    - both commands and subcommands can have their own flag
-    - they modify how a command works
+    - both commands and subcommands can have their own flags
+    - they modify how a command/subcommand works
     - some flags come in two different forms - when they do they are equivalent:
         + short which must be prepended by `-`: `-v`
-        + long: which must be prepended by `--` `--verbose`
+        + long: which must be prepended by `--`: `--verbose`
     - multiple short flags can be combined after one `-` e.g. the following are equivalent:
         + `ls -l -a -h`
         + `ls -lah`
 * subcommands:
-    - sometimes when one command is too complex whoever writes (makes or provides) the command into 1 command and one and more command + subcommand[s]
+    - sometimes when a command is too complex whoever writes (makes or provides) the command brakes it into 1 command and one ore more subcommands
 * arguments:
-    - it is whatever the command or subcommand acts upon for example `git clone` command and subcommand acts upon a URL downloading it
+    - it is whatever the command or subcommand acts upon, e.g. `git clone` command and subcommand act upon an URL downloading it
 
 ```sh
 # YOU CAN EXECUTE THESE COMMANDS INSIDE A TEST DIRECTORY TO SEE HOW FLAGS MODIFY ITS SUBCOMMAND BEHAVIOR
@@ -78,16 +80,18 @@ git       clone      --quiet         https://github.com/molcathy/python.git
 ```
 
 ## useful bash commands
-* there are many probably thousands of bash commands, but we are focus on the most basic one of the [most important ones](https://www.google.com/search?q=most+important+bash+commands)
-* many commands do not come by default with any system and that is the case for MacOS
-* most important bash commands can be installed on macOS with *brew* e.g. `brew install tree`
-
+* there are probably thousands of bash commands, but we are focus on the most basic one of [the most important ones](https://www.google.com/search?q=most+important+bash+commands)
 ```sh
 ## print working directory i.e. current directory
 pwd
 
 ## list files and directories
 ls
+ls -a    # list hidden files
+ls -h    # list in pretty format
+ls -a    # list in long format
+ls -lah  # list with all 3 flags combined
+
 
 ## make directory
 mkdir myDirectory
@@ -95,21 +99,117 @@ mkdir myDirectory
 ## change working directory - NOTE: note multiple directory names or files are separated by /
 cd myDirectory
 cd myDirectory1/myDirectory2
+cd /myDirectory1/myDirectory2
 
 ## list directories and files recursively as a tree
 tree
-tree -d    # list directories only
-tree -L 3  # limit the number of directories and files you want displayed, here 3
+tree -d     # list directories only
+tree -L 3   # limit the number of directories and files you want displayed, here 3
 tree -dL 3
 tree --help # ! NOTE: often commands come with --help or -h flags that display a help menu
+
+## remove files & directories
+rm -vi myFile  # remove file verbosely asking for confirmation
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+rm -rm myDir   # DANGER THIS COMMAND CAN REMOVE YOUR ENTIRE FILE SYSTEM
+               # NEVER run rm -rm ON A ABSOLUTE PATH i.e. starting with /
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ```
 
-
 ## brew macOS package manager
+* only _some_ commands come preinstalled with an OS (**O**perating **S**ystem)  and that is the case for macOS
+* on macOS you can install additional bash commands with [brew](https://brew.sh/) e.g. `brew install tree`
+* brew itself must be installed first since it does not come by default with macOS
+* to install brew follow instructions at https://brew.sh/
+* brew is a macOS cli package manger i.e. software that manges other software:
+    - lists installed software
+    - installs additional software
+    - updates installed software
+    - remove installed software
+* brew let you mange both cli and gui software (with the `--cask` flag)
+* you can
+```sh
+## LISTS INSTALLED PACKAGES
+brew list          # cli
+brew list --cask   # gui
+
+## INSTALL
+brew install git
+brew install --cask firefox
+
+## UPDATE & UPGRADE ALL INSTALLED PACKAGES
+bre update
+brew upgrade
+
+## REMOVE PACKAGES
+ # uninstall & remove are equivalent
+brew uninstall myPackage
+brew remove myPackage
+```
+
 ## text editors
+* text editors can be used to write python programs
+* some of the most popular text editors that can be run on mac (and likely on windows and linux) are:
+    - [sublime text](https://www.sublimetext.com/)
+    - [atom](https://atom.io/)
+    - [visual studio code or vscode](https://code.visualstudio.com/)
+    - vim
+* vim is the only text editor from in this list that:
+    - it is a cli text editor
+    - comes by default installed on macOS
+
+* likely all of these text editors can be installed either:
+    - downloading the installer form the software vendor's site
+    - with brew
+
+### text editors vs word processors vs IDEs
+* word processors:
+    - e.g. 'MS Word' are not suitable for writing code
+    - they are meant to visually edit text
+    - they add hidden instructions that interfere with code execution
+* text editors like the ones listed above:
+    - have features that facilitate writing code e.g.:
+        + syntax highlighting
+        + linting
+        + auto saving
+        + projects management
+        + terminal/shell access
+        + integrate with git/github
+    - some of the above features come by default with the text editors whereas others are provided by plugins you have to install
+* IDE (Integrated Development Environment):
+    - same as text editors are suitable for writing programs
+    - in general, IDEs have more built-in features compared with text editors
+    - the complexity of IDEs means they have a steeper learning curve
+    - the complexity and stepper learning curve of IDEs can distract from leaning the actual language and in general, they should be only used once you are pretty conformable with the most common aspect of the language you are learning
+    - one of the best python IDE is [PyCharm](https://www.jetbrains.com/pycharm/) which has both a free and a paid version
+
+### vscode
+* for this tutorial we shall use vscode
+* vscode has many features:
+    - syntax highlighting for many langues including python
+    - linting
+    - git/github integration
+    - project management
+    - multiple line cursor
+    - automatic detection of local github repositories
+    - project management
+    - comes with command `code` which an be used to open files or directories into code
+
+```sh
+## cd into your python project
+cd myPythonProject
+
+## open current directory in vscode
+code .
+```
+
 ## markdown
 ## git - github
 ## virtual environments
-## pip
+## pip - packages
 ## functions
+## modules
 ## testing
+## debugging
+## exercism.io
+## workflow
