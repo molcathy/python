@@ -182,7 +182,26 @@ brew remove myPackage
     - the complexity of IDEs means they have a steeper learning curve
     - the complexity and stepper learning curve of IDEs can distract from leaning the actual language and in general, they should be only used once you are pretty conformable with the most common aspect of the language you are learning
     - one of the best python IDE is [PyCharm](https://www.jetbrains.com/pycharm/) which has both a free and a paid version
+
+### vscode
 * for this tutorial we shall use vscode
+* vscode has many features:
+    - syntax highlighting for many langues including python
+    - linting
+    - git/github integration
+    - project management
+    - multiple line cursor
+    - automatic detection of local github repositories
+    - project management
+    - comes with command `code` which an be used to open files or directories into code
+
+```sh
+## cd into your python project
+cd myPythonProject
+
+## open current directory in vscode
+code .
+```
 
 ## markdown
 ## git - github
@@ -191,4 +210,6 @@ brew remove myPackage
 ## functions
 ## modules
 ## testing
+## debugging
 ## exercism.io
+## workflow
