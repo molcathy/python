@@ -148,6 +148,42 @@ brew remove myPackage
 ```
 
 ## text editors
+* text editors can be used to write python programs
+* some of the most popular text editors that can be run on mac (and likely on windows and linux) are:
+    - [sublime text](https://www.sublimetext.com/)
+    - [atom](https://atom.io/)
+    - [visual studio code or vscode](https://code.visualstudio.com/)
+    - vim
+* vim is the only text editor from in this list that:
+    - it is a cli text editor
+    - comes by default installed on macOS
+
+* likely all of these text editors can be installed either:
+    - downloading the installer form the software vendor's site
+    - with brew
+
+### text editors vs word processors vs IDEs
+* word processors:
+    - e.g. 'MS Word' are not suitable for writing code
+    - they are meant to visually edit text
+    - they add hidden instructions that interfere with code execution
+* text editors like the ones listed above:
+    - have features that facilitate writing code e.g.:
+        + syntax highlighting
+        + linting
+        + auto saving
+        + projects management
+        + terminal/shell access
+        + integrate with git/github
+    - some of the above features come by default with the text editors whereas others are provided by plugins you have to install
+* IDE (Integrated Development Environment):
+    - same as text editors are suitable for writing programs
+    - in general, IDEs have more built-in features compared with text editors
+    - the complexity of IDEs means they have a steeper learning curve
+    - the complexity and stepper learning curve of IDEs can distract from leaning the actual language and in general, they should be only used once you are pretty conformable with the most common aspect of the language you are learning
+    - one of the best python IDE is [PyCharm](https://www.jetbrains.com/pycharm/) which has both a free and a paid version
+* for this tutorial we shall use vscode
+
 ## markdown
 ## git - github
 ## virtual environments
