@@ -111,7 +111,7 @@ tree --help # ! NOTE: often commands come with --help or -h flags that display a
 ## remove files & directories
 rm -vi myFile  # remove file verbosely asking for confirmation
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-rm -rm myDir   # DANGER THIS COMMAND CAN REMOVE YOUR ENTIRE FILE SYSTEM
+rm -rf myDir   # DANGER THIS COMMAND CAN REMOVE YOUR ENTIRE FILE SYSTEM
                # NEVER run rm -rm ON A ABSOLUTE PATH i.e. starting with /
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ```
