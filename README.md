@@ -182,7 +182,7 @@ brew remove myPackage
     - same as text editors are suitable for writing programs
     - in general, IDEs have more built-in features compared with text editors
     - the complexity of IDEs means they have a steeper learning curve
-    - the complexity and stepper learning curve of IDEs can distract from leaning the actual language and in general, they should be only used once you are pretty conformable with the most common aspect of the language you are learning
+    - the complexity and stepper learning curve of IDEs can distract from leaning the actual language - in general, they should be only used once you are pretty conformable with the most common aspects of the language you are learning
     - one of the best python IDE is [PyCharm](https://www.jetbrains.com/pycharm/) which has both a free and a paid version
 
 ### vscode
