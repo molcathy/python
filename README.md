@@ -114,6 +114,9 @@ rm -vi myFile  # remove file verbosely asking for confirmation
 rm -rm myDir   # DANGER THIS COMMAND CAN REMOVE YOUR ENTIRE FILE SYSTEM
                # NEVER run rm -rm ON A ABSOLUTE PATH i.e. starting with /
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+## check if myCommand is installed and its path
+which myCommand
 ```
 
 ## brew macOS package manager
@@ -125,15 +128,15 @@ rm -rm myDir   # DANGER THIS COMMAND CAN REMOVE YOUR ENTIRE FILE SYSTEM
     - lists installed software
     - installs additional software
     - updates installed software
-    - remove installed software
-* brew let you mange both cli and gui software (with the `--cask` flag)
+    - removes installed software
+* brew lets you mange both cli and gui software (with the `--cask` flag)
 * you can
 ```sh
 ## LISTS INSTALLED PACKAGES
 brew list          # cli
 brew list --cask   # gui
 
-## INSTALL
+## INSTALL PACKAGES
 brew install git
 brew install --cask firefox
 
@@ -148,18 +151,17 @@ brew remove myPackage
 ```
 
 ## text editors
-* text editors can be used to write python programs
-* some of the most popular text editors that can be run on mac (and likely on windows and linux) are:
+* text editors are programs used to edit plain text and can be used to write python programs
+* some of the most popular text editors that run on macOS (and likely on windows and linux) are:
     - [sublime text](https://www.sublimetext.com/)
     - [atom](https://atom.io/)
     - [visual studio code or vscode](https://code.visualstudio.com/)
-    - vim
-* vim is the only text editor from in this list that:
-    - it is a cli text editor
-    - comes by default installed on macOS
+    - vim the only text editor from in this list that:
+        + is a **cli** text editor
+        + comes by default installed on macOS
 
 * likely all of these text editors can be installed either:
-    - downloading the installer form the software vendor's site
+    - downloading the installer form the software vendor's website
     - with brew
 
 ### text editors vs word processors vs IDEs
