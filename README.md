@@ -206,6 +206,28 @@ code .
 ```
 
 ## markdown
+* markdown is a lightweight markup language
+* you can find many sites that explain the markdown syntax e.g. https://www.markdownguide.org/basic-syntax/
+* you can also learn the basic markdown syntax from this file
+* the main syntax elements are:
+    * headers
+    * lists:
+        - ordered
+        - unordered
+    * code:
+        - in line
+        - blocks
+    * paragraphs
+
+* normally markdown files use the `.md` extension
+* the extension allows text editors such as vscode to recognize markdown files and apply them correct syntax highlighting
+* as a programmer you can used it manly to, e.g.:
+    - take notes
+    - write code documentation
+* github and markdown:
+    - github automatically recognizes markdown files ending in `.md` and renders them
+    - normally each repository has `READEME.md` in the root of the repository that documents the code in that repository - github displays it automatically
+
 ## git - github
 ## virtual environments
 ## pip - packages
