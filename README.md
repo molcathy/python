@@ -226,9 +226,11 @@ code .
     - write code documentation
 * github and markdown:
     - github automatically recognizes markdown files ending in `.md` and renders them
-    - normally each repository has `READEME.md` in the root of the repository that documents the code in that repository - github displays it automatically
+    - normally each repository has `README.md` in the root of the repository that documents the code in that repository - github displays it automatically
 
 ## git - github
+
+
 ## virtual environments
 ## pip - packages
 ## functions
