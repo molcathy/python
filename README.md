@@ -228,7 +228,105 @@ code .
     - github automatically recognizes markdown files ending in `.md` and renders them
     - normally each repository has `README.md` in the root of the repository that documents the code in that repository - github displays it automatically
 
-## git - github
+## git - github.com
+* I will refer to github.com simply as github
+* git and github are tolls used to implement source control
+* source control refers to tracking and managing code changes
+* they both allow for large teams to collaborate on the same code base
+* git is a local cli whereas github is an online central hosting service that works with git
+* github allows users to create accounts
+* in github all the code in an account is stored repositories
+* github allows for 2 types of repository:
+    - public: where everybody can see and clone your code but only collaborators can propose or make changes to your code
+    - private: where only collaborators can view clone and propose or make changes to your code
+* both git and github use the concept of branches which are copies of the same repository
+* each repository has a main (used to be called master) branch
+* developers create branches in order to correct bugs or to implement features and in order to avoid working on the main branch
+* when a developer has finished correcting a bug or implementing a feature and is ready to merge its code into the main branch he/she submits a pull request
+* usually before a pull request changes are merged into the main branch the code has to pass automated checks and be verified by a peer
+* this way the main branch contains the version of code that is always ready for production i.e. a workable and stable version of your code
+
+### identification
+* the user running git commands to clone (download copies) or to push updates to a github account need to identify; the identification process allows github to determine what permissions you have on a particular account you are trying to connect to
+* git - github authentication is implemented through public key pairs:
+    - we generate a private - public key pair on our computer
+    - the public key acts as a lock
+    - the private key which must be kept safe and never share it acts as a key
+    - we upload the public key to our repository
+    - when we run git command against our repository (e.g. git clone myRepo, or git push) git automatically uses our local private key to authenticate ("open the lock") on our repository
+
+### workflow
+![example variables](git-gitthub-workflow.png "git-gitthub workflow.png")
+1. create a repository on github:
+    - name: choose something meaningful and short; instead of whitespace use hyphen or camelCase or PascalCase; note in general you should avoid names with whitespace unless you know what you are doing
+    - description: meaningful and short but longer the name; you can use white spaces
+    - add a `READE.md`
+    - add a `.gitignore` for the language you plan to write the code
+    - add a license - in short, the MIT license, for instance, says "do whatever you want with this, just don’t sue me."
+2. clone your repository locally to your workstation
+3. create a new branch with a meaningful short name
+4. write your changes
+5. stage (or add) your changes
+6. commit your changes; add a short meaningfully message
+7. push your changes
+8. login to your repository and create a pull request
+9. ask a peer to review your changes
+10. once changed approved the peer or you should merge the changes
+11. the merge branch normally is deleted, however, the same branch can be reused for multiple pull requests
+
+```sh
+## clone
+git clone myRepository
+
+## create branch from the main branch of the cloned repository
+git branch myBranch
+
+## checkout myBranch
+git checkout myBranch
+
+## check status: what files have been modified
+git status
+
+## stage (add) your changes
+git add myFile1 myFil2 ...     # add files individually
+git add .                      # add all changed files in this repository
+
+## commit any staged files
+git commit -m 'my meaningful message'
+
+## push your changes
+git push
+```
+
+### bringing your local branch in sync with the remote branches
+Let's say multiple colaborators on a project merging code often to the github main branch.
+Before you start working on your local version of your code you want to make sure that you bring your local code in sync with the latest version of the main branch.
+To do so you need to:
+1. make sure you have checkout your main branch
+1. check if there are any changes on the github's main branch
+2. if there are pull those changes
+3. checkout your other branches that you might be having
+4. bring these branches in sync with your local main branch
+
+```sh
+## list local branches
+git branch
+
+## checkout main
+git checkout main
+
+## check if remote main and local main are in sync
+git fetch
+
+## pull any changes from the remote main
+git pull
+
+## checkout your any branch you might want to bring in sync with your now up to date local main branch
+git checkout myBranch
+
+## bring myBranch in sync with your local main branch
+git rebase main
+```
 
 
 ## virtual environments
