@@ -328,11 +328,11 @@ git checkout myBranch
 git rebase main
 ```
 
-
-## virtual environments
-## pip - packages
 ## functions
+## classes
 ## modules
+## packages
+## pip
 ## testing
 ## debugging
 ## exercism.io
