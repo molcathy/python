@@ -331,8 +331,8 @@ git rebase main
 ## functions
 ## classes
 ## modules
-## packages
-## pip
+## pip - packages
+## virtual environments
 ## testing
 ## debugging
 ## exercism.io
