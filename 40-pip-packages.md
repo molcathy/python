@@ -1,10 +1,13 @@
 # pip & pacakges
-* pip is a package manager for Python packages
-* https://pypi.org/project/pip/
+* packages are modules that have been published and are stored in online repositories
 * packages/modules extend python functionality
 * they are focused on accomplishing specific tasks
-* they https://pypi.org/project/pip/
-
+* once installed and imported they can be used in a similar manner as any other modules
+* pip is a package manager for Python packages the same way brew is a macOS package manger
+* pip lets manage python packages e.g.:
+    - search for packages
+    - install packages
+* example of repository where you can search for packages https://pypi.org/project/pip/
 
 ```sh
 #! NOTE INSTEAD OF pip you might have to run pip3
@@ -28,5 +31,3 @@ pip install --upgrade myPackages
 ## uninstall
 pip uninstall myPackages
 ```
-
-## what are pip pacakages ?? vs module

@@ -1,8 +1,8 @@
 # python virtual environments
-* virtual environments are a way to mange your program dependencies (e.g. modules):
-    - it isolates them from the rest of the operating system
+* virtual environments are a way to mange your application dependencies (e.g. modules, packages):
+    - it isolates your  application and its dependencies from the rest of the operating system
     - it creates a list a dependencies
-* using environments allow other developers to reproduce your development environment exactly
+* using environments allows other developers to reproduce your development environment exactly
 * it is important for all the developers part of a project to run the program in the same environment - not doing so you end up with all kinds of bugs caused by your environment
 
 ```sh
