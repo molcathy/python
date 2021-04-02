@@ -145,13 +145,13 @@ markers =
 
 
 ## setup & teardown fixtures
-:fixtures
-decorated function objects
+**fixtures**
+: decorated function objects
 
-setup fixture
+**setup fixture**
 : code to be executed before tests to preparing the environment for tests to run e.g. initializing a class and returning the object, starting a db connections and returning the db connection
 
-teardown fixture
+**teardown fixture**
 : code to be executed after tests have run to teardown the environment built by setup fixture
 
 * setup & teardown fixtures can be invoked at different levels:
