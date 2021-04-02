@@ -4,6 +4,7 @@ def add(num1, num2):
 def multiply(num1, num2):
     return num1 * num2
 
+
 class Calculator:
     '''Performs simple operations'''
     def __init__(self, num1, num2):
@@ -15,4 +16,8 @@ class Calculator:
 
     def divide(self):
         return self.num1 / self.num2
+
+# This function will raise an exception
+def raise_exc():
+    raise(Exception)
 

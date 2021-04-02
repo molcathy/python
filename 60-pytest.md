@@ -1,12 +1,12 @@
 # [pytest](https://docs.pytest.org/en/stable/)
-* terminology:
-    - framework: a platform/set of tools which can be used to achieve a goal, a
+**framework**
+: a platform/set of tools which can be used to achieve a goal, a
 * one of the most popular python testing frameworks
 * must be installed as a package with pip
 * when used must be imported as a module
 * comes with a command line
 
-## testing
+## testing in general
 *  necessary to make sure:
     - your code works as expected
     - changes do not brake your code in a way you did not expect
@@ -33,14 +33,18 @@
 * we will use a variant of tdd to implement testing
 
 ## strategy
-* vocabulary / terminology:
-    -  implementation module: the module (or file) containing the code you want to test
-    -  test module: the module (or file) containing the testing code
-    -  code refactoring: rewriting your code in a better way, e.g. eliminating duplication
+**implementation module**
+: the module (or file) containing the code you want to test
+
+**test module**:
+: the module (or file) containing the testing code
+
+**code refactoring**:
+: rewriting your code in a better way, e.g. eliminating duplication
+
 * note in this context module and files are referring to the same thing and I might use them interchangeably:
     - implementation module = implementation file
     - test module           = test file
-* based on the red - green - refactor TDD
 
 1. write a dummy / method function want to implement (implementation module):
     * name
@@ -57,8 +61,8 @@
 6. repeat 2 -> 5 until test cases are exhausted
 
 ## implementation / syntax
-* vocabulary / terminology:
-    - pip: piton package manger
+**pip**
+: piton package manger
 
 * before using pytest you must install it with pip
 
@@ -97,13 +101,62 @@
     - skip tests marked that match condition
     - use multiple type of parameters with same test function with `@pytest.mark.parametrize()`
 
+## decorators
+* are special functions who modify the behavior other functions `@mydecorator`; they go in the top the regular functions they modify
+* in pytest implement features such as:
+    - fixtures: used setup and teardown
+    - markers: used to run specific tests
+    - markers.parametrize: used to pass list of tuple of parameters and results
+
+
+## setup & teardown fixtures
+**fixtures**
+: decorated function objects
+
+**setup fixture**
+: code to be executed before tests to preparing the environment for tests to run e.g. initializing a class and returning the object, starting a db connections and returning the db connection
+
+**teardown fixture**
+: code to be executed after tests have run to teardown the environment built by setup fixture
+
+* fixture scopes:
+    - function: the default scope, the fixture is destroyed at the end of the test
+    - class
+    - module
+    - package
+    - session
+
+* fixtures are created by decorating a function with `@pytest.fixture()`
+
+* tests use fixtures either by:
+    - taking the fixture as one of the arguments: this is required if the test needs to access the return of the fixture
+    - being decorated with `@pytest.mark.usefixtures("myFixture")`
+
+* fixtures can request other fixtures
+
+* the fixtures can also set their `autouse` parameter to true => will be executed by all tests in its scope
+
+
+* example on how to create a setup fixtures for method tests:
+    1. create fixture:
+        - define a function that performs the required setup e.g.instantiate one or more classes in one or more objects each and return these objects
+        - decorate it with `@pytest.fixture()` decorator
+    2. pass the fixture (just the function name without calling it) as a parameter to the tests that are supposed to use it
+    3. in the test function you can refer to the object returned by fixture through the parameter which now accepts methods since it is a object of the class instantiated at #1
+    4. if the fixture returns multiple objects you can access these objects in the tests through `param[index]` since the params are tuples
+
+## testing exceptions
+* by default test are failing if exception are raised
+* you can write your test to **not fail** if the tested function raises an excepted error
+* I assume you can also write your test to **fail** if the tested does not raises an expected error, but was not able to establish how you can do so
+
 ## running tests
 ```sh
 ## install pytest
 pip install pytest
 
 ## run tests
-pytest                                # all tests in all the test files
+pytest                                # all tests in all the test files recursively
                                       # passed tests are denoted by green dots at the right of the test file
                                       # failed tests are denoted by red 'F' at the right of the test file
 pytest -v                             # all tests in all the test files in verbose mode
@@ -127,7 +180,6 @@ pytest --maxfail=2                    # stop after a maximum of 2 failures
 pytest --tb=no                        # do not print stacktrace
 
 pytest -s                             # print print statements from within the test
-```
 
 ## notice marker must be registered in order to be used
 ❯ cat pytest.ini
@@ -135,46 +187,15 @@ pytest -s                             # print print statements from within the t
 markers =
     int: mark test as number
     str: mark test as number
-
-## decorators
-* are special functions who modify the behavior other functions `@mydecorator`; they go in the top the regular functions they modify
-* in pytest implement features such as:
-    - fixtures: used setup and teardown
-    - markers: used to run specific tests
-    - markers.parametrize: used to pass list of tuple of parameters and results
-
-
-## setup & teardown fixtures
-**fixtures**
-: decorated function objects
-
-**setup fixture**
-: code to be executed before tests to preparing the environment for tests to run e.g. initializing a class and returning the object, starting a db connections and returning the db connection
-
-**teardown fixture**
-: code to be executed after tests have run to teardown the environment built by setup fixture
-
-* setup & teardown fixtures can be invoked at different levels:
-    - session
-    - module
-    - class
-    - test (i.e. test function)
-
-* example on how to create a fixtures for method tests:
-    1. create fixture:
-        - define a function that performs the required setup e.g.instantiate one or more classes in one or more objects each and return these objects
-        - decorate it with `@pytest.fixture()` decorator
-    2. pass the fixture (just the function name without calling it) as a parameter to the tests that are supposed to use it
-    3. in the test function you can refer to the object returned by fixture through
+```
 
 ## !!
 * importing pytest in the test module only need pytest imported in the test module if you use pytest functionality e.g. fixtures,  markers `@pytest.mark.int`
 
 ## ??
+* how to build teardown fixtures
 * positive vs negative test cases
 * how to make use of the default parameters value when using mark.parametrize decorators:
     - write a function that takes 2 params, where the 2nd has a default value
     - when creating a test with mark.parametrize there is no way to pass a parameter default value; not specifying the 2nd parameter instead of using param's default value errs
 
-
-test3
