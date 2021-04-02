@@ -325,6 +325,8 @@ git pull
 git checkout myBranch
 
 ## bring myBranch in sync with your local main branch
+## merge and rebase are _largely_ equivalent
+git merge main
 git rebase main
 ```
 
