@@ -176,3 +176,5 @@ markers =
     - write a function that takes 2 params, where the 2nd has a default value
     - when creating a test with mark.parametrize there is no way to pass a parameter default value; not specifying the 2nd parameter instead of using param's default value errs
 
+
+# ------------------ test ------------------------ #
