@@ -20,7 +20,9 @@ class Calculator:
     def divide(self):
         return self.num1 / self.num2
 
-# This function will raise an exception
-def raise_exc():
+# Functions will raise exceptions
+def raise_exc1():
     raise(Exception)
 
+def raise_exc2():
+    raise(ValueError)

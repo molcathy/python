@@ -1,5 +1,5 @@
-import pytest
 import mymath1
+import pytest
 
 # Fixture: setup only
 @pytest.fixture()
@@ -50,11 +50,6 @@ def test_divide(calculator):
     assert calculator[0].divide() == 4
     assert calculator[1].divide() == 3
 
-# Disregard raised expected Exception
-def test_raise_exc():
-    with pytest.raises(Exception):
-        mymath1.raise_exc()
-
 # Using decorators to call fixture
 @pytest.mark.usefixtures("setup_teardown_fix_1")
 def test_setup_teardown_1():
@@ -76,3 +71,13 @@ def test_setup_teardown_2():
 )
 def test_square(num1, num2, result):
     assert mymath1.square(num1, num2) == result
+
+# Disregard raised expected exception
+def test_raise_exc1():
+    with pytest.raises(Exception):
+        mymath1.raise_exc1()
+
+# Fail if tested function does not raises expected exception
+def test_raise_exc2():
+    with pytest.raises(ValueError):
+       mymath1.raise_exc2()
