@@ -1,12 +1,7 @@
 import pickle
 
-fName = input("What is your first name? ")
-lName = input("What is your last name? ")
-salary = input("What is your salary? ")
-role = input("What is role worker (w) or manager (m)? ")
-
 class Worker:
-    'Common base class for all workers'
+    '''Common base class for all workers'''
     company = "test.com"
 
     def __init__(self, fName, lName, salary):
@@ -37,6 +32,11 @@ class Manager(Worker):
 
     def fireWorkers(self):
         print('Fired.')
+
+fName = input("What is your first name? ")
+lName = input("What is your last name? ")
+salary = input("What is your salary? ")
+role = input("What is role worker (w) or manager (m)? ")
 
 if role == 'w':
     wk = Worker(fName, lName, salary)
