@@ -109,15 +109,19 @@
     - markers.parametrize: used to pass list of tuple of parameters and results
 
 
-## setup & teardown fixtures
+## fixtures: setup & teardown
+**NOTE: Primarily See Examples In mymath1**
+
 **fixtures**
 : decorated function objects
 
-**setup fixture**
+**fixture: setup code**
 : code to be executed before tests to preparing the environment for tests to run e.g. initializing a class and returning the object, starting a db connections and returning the db connection
+: required
 
-**teardown fixture**
+**fixture: teardown code**
 : code to be executed after tests have run to teardown the environment built by setup fixture
+: optional
 
 * fixture scopes:
     - function: the default scope, the fixture is destroyed at the end of the test
@@ -126,16 +130,13 @@
     - package
     - session
 
+### setup
 * fixtures are created by decorating a function with `@pytest.fixture()`
-
 * tests use fixtures either by:
     - taking the fixture as one of the arguments: this is required if the test needs to access the return of the fixture
     - being decorated with `@pytest.mark.usefixtures("myFixture")`
-
-* fixtures can request other fixtures
-
 * the fixtures can also set their `autouse` parameter to true => will be executed by all tests in its scope
-
+* fixtures can use other fixtures passed as parameters
 
 * example on how to create a setup fixtures for method tests:
     1. create fixture:
@@ -145,6 +146,27 @@
     3. in the test function you can refer to the object returned by fixture through the parameter which now accepts methods since it is a object of the class instantiated at #1
     4. if the fixture returns multiple objects you can access these objects in the tests through `param[index]` since the params are tuples
 
+### teardown
+* optional
+* it cleans up after setup and tests have run
+* it executed after a fixture goes out of scope
+* its feature can specify its teardown code
+* there are two ways for specifying teardown code:
+    1. yeld keyword
+    2. request's context object's "addfinalizer" method:more capable
+* yeld:
+    - it is like it splits the function in 2 and teardown resume with yeld
+    - yeld replacement for `return` and and any value that you want returned should be passed to it ??
+* addfinalizer:
+    - allows for multiple finalizer methods to be passed to it
+    - will not be studied here
+
+### returning data
+* can return data which can be used in the test
+* data can be passed by the decorated to the fixture through the params array `parmas=[value1, ...]`
+* when a params has multiple values the test will be called for each value
+* this can be used the tests with multiple values - will not study the implementation here
+
 ## testing exceptions
 * by default test are failing if exception are raised
 * you can write your test to **not fail** if the tested function raises an excepted error
@@ -152,6 +174,8 @@
 
 ## running tests
 ```sh
+## NOTE: Primarily See Examples In mymath2
+
 ## install pytest
 pip install pytest
 
@@ -195,6 +219,9 @@ markers =
 ## ??
 * how to build teardown fixtures
 * positive vs negative test cases
+* how to returns values with both:
+    - setup
+    - teardown
 * how to make use of the default parameters value when using mark.parametrize decorators:
     - write a function that takes 2 params, where the 2nd has a default value
     - when creating a test with mark.parametrize there is no way to pass a parameter default value; not specifying the 2nd parameter instead of using param's default value errs
