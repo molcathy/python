@@ -6,6 +6,7 @@ Was not able to find tutorials to help me understand how to use:
     - pytest
     - MagicMock
     - monkeypatch
+    - fixtures
 
 * is required for cases where your application interacts with systems outside your program aka collaborators:
     - file system
@@ -81,4 +82,5 @@ Was not able to find tutorials to help me understand how to use:
 * 70-mocking:
     1. fs_test1.py: using unittest & Mock
     2. fs_test2.py: using pytest & Mock
-    1. magic_line_reader_test.py: using MagicMock, monkeypatch
+    3. fs_test3.py: using pytest & monkeypatch
+    4. magic_line_reader_test.py: using MagicMock, monkeypatch, fixtures  - but I do not understand how it works

@@ -336,6 +336,7 @@ git rebase main
 ## pip - packages
 ## virtual environments
 ## testing
+## mocking
 ## debugging
 ## exercism.io
 ## workflow

@@ -6,8 +6,8 @@ import line_reader
 def mockopen(monkeypatch):
     mockfile = mock.MagicMock()
     mockfile.readline = mock.MagicMock(return_value="test line")
-
     mockopen = mock.MagicMock(return_value=mockfile)
+
     monkeypatch.setattr("builtins.open", mockopen)
     return mockopen
 
