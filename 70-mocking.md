@@ -7,6 +7,7 @@ Was not able to find tutorials to help me understand how to use:
     - MagicMock
     - monkeypatch
     - fixtures
+Nest I will have to look attempt to understand how each tool work on its own and then to understand how to couple them toughener.
 
 * is required for cases where your application interacts with systems outside your program aka collaborators:
     - file system
