@@ -14,6 +14,7 @@
     - ask the object to return one or more of its attributes
     - ask the object to perform one or more actions
 * classes are useful for representing in code real-life entities (things, animals, plants, humans ...) by implementing their attributes (their defining properties) and methods (what they can do)
+* you cave classes inside classes (inner classes)
 
 ## inheritance
 * in nature a set of entities can belong to a wider set while containing narrower sets:
