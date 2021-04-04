@@ -45,7 +45,7 @@ cd ~/repos/github.com/molcathy/exerscism/
 source venv/bin/activate
 
 #3. Choose & Download Exercise https://exercism.io/my/tracks/python
-exercism download --track=python --exercise=hello-world
+exercism download --exercise=hello-world --track=python
 
 #4. Open The Exercise In VSCode
 cd python/hello-world
