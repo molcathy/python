@@ -16,7 +16,7 @@ This document my work of teaching Catherine Python including any tools she might
 ## [70. mocking](70-mocking.md)
 ## [80. debugging](80-debugging.md)
 ## [90. exercism.io](90-exercism.io.md)
+## [100. workflow](100-workflow.md)
 ## [tikenter]()
 ## [math python]()
 ## [project structure]()
-## [workflow]()
