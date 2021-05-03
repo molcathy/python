@@ -14,7 +14,7 @@
 **test module**:
 : the module (or file) containing the testing code
 
-**code refactoring**:
+**code refactoring**
 : rewriting your code in a better way, e.g. eliminating duplication
 
 **pip**
@@ -23,13 +23,11 @@
 **fixtures**
 : decorated function objects
 
-**fixture: setup code**
-: code to be executed before tests to preparing the environment for tests to run e.g. initializing a class and returning the object, starting a db connection and returning the db connection
-: required
+**fixture - setup code**
+: code to be executed before tests to prepare the environment for tests to run e.g. initializing a class and returning the object, starting a db connection and returning the db connection
 
-**fixture: teardown code**
+**fixture - teardown code**
 : code to be executed after tests have run to teardown the environment built by setup fixture
-: optional
 
 ## testing in general
 *  necessary to make sure:
